@@ -49,8 +49,22 @@ void test2 () {
 	assert(it == list.end());
 }
 
+void test3() {
+	List list;
+	list.push_back(1);
+	list.push_back(5);
+	list.push_front(7);
+	list.pop_front(7);
+	list.pop_back(5);
+	Iterator it = list.begin();
+	assert(*it == 1);
+	list.erase(it, 1);
+	assert(list.empty() == true);
+}
+
 int main() {
 	test1();
 	test2();
+	test3();
 	cout << "All tests passed." << endl;
 }
