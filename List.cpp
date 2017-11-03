@@ -97,10 +97,17 @@ void List::insert(Iterator it, int value) {
 	prev->next = new Link(value, it.link);
 }
 
-void List::erase(Iterator it) {
-	it == head;
-	Link* erased;
-	erased = head;
-	erased = erased->next;
-	head = erased;
+Iterator List::erase(Iterator it) {
+	if (it.link == 0) {
+		return it;  //if nothing to erase
+	}
+	Link * newLink = it.link->next;	//temp location of the deleted value
+	int temp = it.link->value;  //stores head
+	it.link->value = newLink->value; //switches head with temp
+	newLink->value = temp;	//vice versa
+
+	Link * temp2 = it.link->next->next;  //temp location of data after deleted
+	it.link->next = temp2; //sets temp location = to location of data after deleted
+	delete temp;
+	return it;
 }
