@@ -23,7 +23,7 @@ public:
 	Iterator begin();
 	Iterator end();
 	void insert(Iterator it, int value);
-	void erase(Iterator it);
+	Iterator erase(Iterator it);
 
 private:
 	Link* head;
