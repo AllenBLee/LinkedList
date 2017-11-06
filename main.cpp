@@ -54,11 +54,11 @@ void test3() {
 	list.push_back(1);
 	list.push_back(5);
 	list.push_front(7);
-	list.pop_front(7);
-	list.pop_back(5);
+	list.pop_front();
+	list.pop_back();
 	Iterator it = list.begin();
 	assert(*it == 1);
-	list.erase(it, 1);
+	list.erase(it);
 	assert(list.empty() == true);
 }
 
