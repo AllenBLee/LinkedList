@@ -18,12 +18,12 @@ public:
 	bool empty() const;
 	void push_front(int x);
 	void push_back(int x);
-	void pop_front(int x);
-	void pop_back(int x);
+	void pop_front();
+	void pop_back();
 	Iterator begin();
 	Iterator end();
 	void insert(Iterator it, int value);
-	Iterator erase(Iterator it);
+	void erase(Iterator it);
 
 private:
 	Link* head;
