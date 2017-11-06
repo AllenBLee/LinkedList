@@ -24,23 +24,23 @@ bool List::empty() const {
 }
 
 void List::push_front(int x) {
-
 	Link* newLink = new Link(x, nullptr);
-
+    	Link *newTail = head;
 	if (!head) head = newLink;
-
 	else {
 		newLink->next = head;
 		head = newLink;
 	}
+    while(newTail -> next != nullptr) {
+        newTail = newTail -> next;
+    }
+    tail = newTail;
 }
 
 void List::push_back(int x) {
-
 	Link* newLink = new Link(x, nullptr);
-
+    	tail = newLink;
 	if (!head) head = newLink;
-
 	else {
 		bool flag = true;
 		Link* temp = head;
@@ -53,27 +53,26 @@ void List::push_back(int x) {
 	}
 }
 
-void List::pop_front(int x) {
+void List::pop_front() {
 	Link* temp = new Link(0, nullptr);
 	temp = head->next;
 	delete head;
 	head = temp;
 }
 
-void List::pop_back(int x) {
-	assert(head != nullptr);
-	if (head->next == nullptr) {
-		delete head;
-		head = nullptr;
-		return;
-	}
-	Link* temp = head;
-	while (temp->next != tail) {
-		temp = temp->next;
-	}
-	tail = temp;
-	tail->next = nullptr;
-	delete temp->next;
+void List::pop_back() {
+    Link* end = head;
+    while(end->next != nullptr){
+        end = end -> next;
+    }
+    Link* newTail = head;
+    while(newTail -> next != end){
+        newTail = newTail -> next;
+    }
+    newTail -> next = nullptr;
+    tail = newTail;
+    end = nullptr;
+    delete end;
 }
 
 Iterator List::begin() {
@@ -97,17 +96,17 @@ void List::insert(Iterator it, int value) {
 	prev->next = new Link(value, it.link);
 }
 
-Iterator List::erase(Iterator it) {
-	if (it.link == 0) {
-		return it;  //if nothing to erase
-	}
-	Link * newLink = it.link->next;	//temp location of the deleted value
-	int temp = it.link->value;  //stores head
-	it.link->value = newLink->value; //switches head with temp
-	newLink->value = temp;	//vice versa
-
-	Link * temp2 = it.link->next->next;  //temp location of data after deleted
-	it.link->next = temp2; //sets temp location = to location of data after deleted
-	delete temp;
-	return it;
+void List::erase(Iterator it) {
+    if(it.link == head) {
+        head = it.link -> next;
+    }
+    else {
+        Link * newNode = head;
+        while(newNode->next != it.link) {
+            newNode = newNode -> next;
+        }
+        newNode -> next = it.link -> next;
+    }
+    it = nullptr;
+    delete it.link;
 }
