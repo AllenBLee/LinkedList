@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void test1 () {
+void test1() {
 	List list;
 	assert(list.empty());
 
@@ -27,7 +27,7 @@ void test1 () {
 	*it += 1;
 }
 
-void test2 () {
+void test2() {
 	List list;
 	list.push_back(1);
 	list.push_back(2);
@@ -64,33 +64,33 @@ void test3() {
 
 void test4() {
 	List list;
-    	list.push_back(1);
-    	list.push_back(2);
-    	list.push_back(3);
-    	it = list.begin();
-    	assert(*it == 1);
-    	++it;
-    	list.erase(it);
-    	assert(*it == 3);
-    	assert(list.size() == 2);
-    	return 0;
+	list.push_back(1);
+	list.push_back(2);
+	list.push_back(3);
+	Iterator it = list.begin();
+	assert(*it == 1);
+	++it;
+	list.erase(it);
+	++it;
+	assert(*it == 3);
+	assert(list.size() == 2);
 }
 
 void test5() {
 	List list;
 	list.push_back(1);
-	list.insert(it, 2);
-    	list.push_back(3);
 	Iterator it = list.begin();
+	list.insert(it, 2);
+	list.push_back(3);
 	assert(list.size() == 3);
 	list.insert(it, 4);
-    	list.push_back(5);
+	list.push_back(5);
 	assert(list.size() == 5);
 }
 
 void test6() {
 	List list;
-	Iterator it == list.end();
+	Iterator it = list.end();
 	list.insert(it, 3);
 	assert(list.size() == 1);
 	it = list.begin();
@@ -104,16 +104,14 @@ void test7() {
 	list.push_back(1);
 	list.push_back(2);
 	list.push_back(3);
-	Iterator it == list.begin();
-	++it;
-	assert(*it == 1);
+	Iterator it = list.begin();
 	++it;
 	assert(*it == 2);
 	++it;
 	assert(*it == 3);
 	++it;
-	assert(*it == null);
-	return 0;
+	assert(it == list.end());
+}
 
 int main() {
 	test1();
