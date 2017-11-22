@@ -8,13 +8,10 @@ using namespace std;
 void test1() {
 	List list;
 	assert(list.empty());
-
 	list.push_back(17);
 	assert(list.empty() == false);
-
 	list.push_front(3);
 	list.push_back(10);
-
 	Iterator it = list.begin();
 	assert(*it == 3);
 	++it;
@@ -111,6 +108,24 @@ void test7() {
 	assert(*it == 3);
 	++it;
 	assert(it == list.end());
+}
+
+void test8() {
+	List list;
+	list.push_back(1)
+	Iterator it = list.begin();
+	list.insert(it, 2);
+	list.insert(it, 3);
+	assert(*it == 3);
+}
+
+void test9() {
+	List list;
+	list.push_back(5);
+	list.pop_back(5);
+	list.pop_back(1);
+	Iterator it = list.begin();
+	assert(*it == nullptr);
 }
 
 int main() {
