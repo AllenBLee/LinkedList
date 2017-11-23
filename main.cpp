@@ -122,8 +122,8 @@ void test8() {
 void test9() {
 	List list;
 	list.push_back(5);
-	list.pop_back(5);
-	list.pop_back(1);
+	list.pop_back();
+	list.pop_back();
 	Iterator it = list.begin();
 	assert(*it == NULL);
 }
