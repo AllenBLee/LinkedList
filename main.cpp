@@ -125,7 +125,7 @@ void test9() {
 	list.pop_back(5);
 	list.pop_back(1);
 	Iterator it = list.begin();
-	assert(*it == nullptr);
+	assert(*it == NULL);
 }
 
 int main() {
