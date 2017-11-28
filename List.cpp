@@ -69,10 +69,9 @@ void List::pop_back() {
 	while (newTail->next != end) {
 		newTail = newTail->next;
 	}
-	newTail->next = nullptr;
 	tail = newTail;
-	end = nullptr;
-	delete end;
+	newTail->next = nullptr;
+	delete newTail->next;
 }
 
 Iterator List::begin() {
