@@ -112,7 +112,7 @@ void test7() {
 
 void test8() {
 	List list;
-	list.push_back(1)
+	list.push_back(1);
 	Iterator it = list.begin();
 	list.insert(it, 2);
 	list.insert(it, 3);
