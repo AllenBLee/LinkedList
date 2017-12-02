@@ -56,6 +56,8 @@ void test3() {
 	Iterator it = list.begin();
 	assert(*it == 1);
 	list.erase(it);
+	it = list.begin();
+	list.erase(it);
 	assert(list.empty() == true);
 }
 
@@ -116,7 +118,8 @@ void test8() {
 	Iterator it = list.begin();
 	list.insert(it, 2);
 	list.insert(it, 3);
-	assert(*it == 3);
+	assert(*it == 1);
+	assert(list.size() == 3);
 }
 
 void test9() {
@@ -124,8 +127,7 @@ void test9() {
 	list.push_back(5);
 	list.pop_back();
 	list.pop_back();
-	Iterator it = list.begin();
-	assert(*it == NULL);
+	assert(list.empty() == true);
 }
 
 int main() {
