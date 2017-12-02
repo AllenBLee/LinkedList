@@ -61,17 +61,20 @@ void List::pop_front() {
 }
 
 void List::pop_back() {
-	Link* end = head;
-	while (end->next != nullptr) {
-		end = end->next;
-	}
+	Link* oldTail = tail;
 	Link* newTail = head;
-	while (newTail->next != end) {
-		newTail = newTail->next;
+	if (tail == head) {
+		tail = nullptr;
+		head = nullptr;
 	}
-	tail = newTail;
-	newTail->next = nullptr;
-	delete newTail->next;
+	else {
+		while (newTail->next != tail) {
+			newTail = newTail->next;
+		}
+		tail = newTail;
+		oldTail = nullptr;
+		delete oldTail;
+	}
 }
 
 Iterator List::begin() {
