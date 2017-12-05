@@ -28,6 +28,7 @@ public:
 private:
 	Link* head;
 	Link* tail;
+	int count;
 };
 
 #endif
