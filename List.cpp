@@ -64,16 +64,17 @@ void List::pop_back() {
 	Link* oldTail = tail;
 	Link* newTail = head;
 	if (tail == head) {
-		tail = nullptr;
+		delete head;
 		head = nullptr;
+		tail = nullptr;
 	}
 	else {
 		while (newTail->next != tail) {
 			newTail = newTail->next;
 		}
 		tail = newTail;
-		oldTail = nullptr;
 		delete oldTail;
+		tail->next = nullptr;
 	}
 }
 
