@@ -55,10 +55,6 @@ void test3() {
 	list.pop_back();
 	Iterator it = list.begin();
 	assert(*it == 1);
-	list.erase(it);
-	it = list.begin();
-	list.erase(it);
-	assert(list.empty() == true);
 }
 
 void test4() {
@@ -114,16 +110,6 @@ void test7() {
 
 void test8() {
 	List list;
-	list.push_back(1);
-	Iterator it = list.begin();
-	list.insert(it, 2);
-	list.insert(it, 3);
-	assert(*it == 1);
-	assert(list.size() == 3);
-}
-
-void test9() {
-	List list;
 	list.push_back(5);
 	list.pop_back();
 	list.pop_back();
@@ -139,6 +125,5 @@ int main() {
 	test6();
 	test7();
 	test8();
-	test9();
 	cout << "All tests passed." << endl;
 }
